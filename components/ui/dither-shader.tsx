@@ -383,13 +383,18 @@ export const DitherShader: React.FC<DitherShaderProps> = ({
       }
     };
 
-    // If image is already loaded, reprocess it
-    if (imageRef.current && imageRef.current.complete) {
+    // If image is already loaded and is the same src, reprocess it
+    if (
+      imageRef.current &&
+      imageRef.current.complete &&
+      imageRef.current.getAttribute("data-src") === src
+    ) {
       processImage(imageRef.current);
     } else {
       // Load the image
       const img = new Image();
       img.crossOrigin = "anonymous";
+      img.setAttribute("data-src", src);
       img.src = src;
 
       img.onload = () => {
