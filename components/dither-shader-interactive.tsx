@@ -84,9 +84,9 @@ export default function DitherShaderInteractive() {
   };
 
   return (
-    <div className="flex flex-row max-sm:flex-col items-center gap-8 max-sm:gap-4 ">
+    <div className="flex flex-row max-md:flex-col items-center gap-8 max-md:gap-4 ">
       {/* Canvas - responsive sizing via Tailwind */}
-      <div ref={containerRef} className="flex items-center relative w-2/3 px-4 overflow-hidden rounded-xl border border-neutral-200 shadow-xl dark:border-neutral-800">
+      <div ref={containerRef} className="flex items-center justify-center relative w-2/3 max-md:w-full max-md:px-2 px-4 overflow-hidden rounded-xl border border-neutral-200 shadow-xl dark:border-neutral-800">
         <DitherShader
           src={imageSrc}
           gridSize={deferredGridSize}
@@ -98,12 +98,12 @@ export default function DitherShaderInteractive() {
           primaryColor={primaryColor}
           secondaryColor={secondaryColor}
           threshold={deferredThreshold}
-          className="max-sm:h-[250px] max-sm:w-[350px] sm:h-[350px] sm:w-[500px] md:h-[500px] md:w-[600px]"
+          className="max-sm:h-[300px] max-md:w-[95%] sm:h-[350px] sm:w-[500px] md:h-[500px] md:w-[600px]"
         />
       </div>
 
       {/* Controls Panel */}
-      <div className="w-1/3 max-w-lg  rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="w-1/3 max-md:w-full max-w-lg rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
 
         <div className="flex justify-between" >
           <h1 className="text-2xl font-bold pb-4">Dither Shader</h1>
@@ -260,8 +260,7 @@ export default function DitherShaderInteractive() {
             onClick={() => setAnimated(!animated)}
             disabled={ditherMode !== "noise"}
             title={ditherMode !== "noise" ? "Only available when Noise pattern is selected" : ""}
-            className={`rounded-full py-1.5 text-xs font-medium transition-all duration-300 ${
-              ditherMode !== "noise"
+            className={`rounded-full py-1.5 text-xs font-medium transition-all duration-300 ${ditherMode !== "noise"
                 ? "bg-neutral-300 px-4 text-neutral-400 dark:bg-neutral-900/50 dark:text-neutral-600 cursor-not-allowed opacity-60"
                 : animated
                   ? "bg-neutral-900 px-2 text-white dark:bg-white dark:text-black"

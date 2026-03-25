@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-mono antialiased">
         {children}
-        <div className="fixed bottom-4 right-4 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 font-medium z-50 pointer-events-none">
+        <div className="fixed bottom-4 right-4 max-sm:static max-sm:w-full max-sm:justify-center max-sm:py-4 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 font-medium z-50 pointer-events-none">
           made by <Link href="https://x.com/kuzuri247" target="_blank" rel="noopener noreferrer" className="pointer-events-auto hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors underline decoration-neutral-500/30 underline-offset-2">Rahul</Link> using <Link href="https://ui.aceternity.com/" target="_blank" rel="noopener noreferrer" className="pointer-events-auto hover:opacity-80 transition-opacity"><img src="/aceternity.png" alt="Aceternity" className="inline-block size-5" /></Link>
         </div>
         <Analytics />
